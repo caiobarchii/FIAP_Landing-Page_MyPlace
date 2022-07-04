@@ -1,0 +1,492 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+/* reset básico - Seletor asterisco (*) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-first:#ffffff;
+    --color-second:#16212b;
+    --color-third:#04B2D9;
+    --color-fourth:#2E4559;
+}
+
+/* formatações genéricas */
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+}
+
+a {
+    /* tirando o underline dos textos */
+    text-decoration: none;
+    color: var(--color-first);
+}
+
+ul {
+    /* tirando os marcadores das listas */
+    list-style: none;
+}
+
+
+
+.nav-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 20px;
+    color: var(--color-first);
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu li {
+    margin: 0 30px;
+}
+
+.nav-menu a{
+    transition: .5s;
+}
+
+.nav-menu a:hover {
+    color: var(--color-third);
+}
+
+.logo {
+    color: var(--color-first);
+}
+
+/* botão contato + botão principal */
+.btn {
+    background-color: var(--color-third);
+    color: var(--color-first);
+    padding: 5px 30px;
+    border-radius: 30px;
+    border: 1px solid var(--color-third);
+    transition: .5s;
+}
+
+.btn:hover {
+    background-color: transparent;
+    color: var(--color-third);
+}
+
+.menu-btn {
+    cursor: pointer;
+    font-size: 30px;
+    position: absolute;
+    /* Esse absolute tira ele da posição inicial. Absoluto com relação ao body, visto que o pai (nav) não tem posição definida */
+    top: 25px;
+    right: 30px;
+    display: none;
+    color: var(--color-first);
+}
+
+/* Quando ocorrer um scroll de tela - o menu mudará sua cor de fundo */
+.active-scroll {
+    background-color: rgba(13, 11, 31, 0.95);
+}
+
+
+
+/* Header */
+
+.header {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0)),
+    url(../images/pexels-felix-mittermeier-957002.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.header-content {
+    margin: 150px 0;
+    color: var(--color-first);
+    text-align: center;
+}
+
+.header-content h2 {
+    margin: 50px 0;
+    font-size: 7vmin; /* v de viewport, vai pegar o mínimo da largura */
+}
+
+.header-content h3 {
+    margin: 50px 0;
+    font-size: 5vmin;
+}
+
+/* Fim header */
+
+
+
+/* Tour */
+
+.tour {
+    width: 80%;
+    margin: 70px auto;
+}
+
+.tour-title {
+    text-align: center;
+    font-size: 4vmin;
+    margin-bottom: 40px;
+}
+
+.line {
+    background-color: var(--color-third);
+    width: 150px;
+    height: 4px;
+    border-radius: 7px;
+    margin: 40px auto;
+}
+
+.tour-list {
+    width: 100%; /* Não precisaria colocar 100%. Ele ocupa 100% dos 80% do tour (hereditário) */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly; /* Permitir que todo espaçamento fique igual. Mesma distancia extremidade e centro */
+    flex-direction: row; /* Não precisaria colocar. Flex por padrão aplica row */
+    flex-wrap: wrap; /* Flex por padrão aplica nowrap, portanto devemos mudar para que ocorra essa quebra e respeite os 45% do filho */
+}
+
+.tour-list-item {
+    width: 45%; /* Ele ocupa 45% dos 100% do tour-list (hereditário) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 25px 0;
+    box-shadow: 0 3px 25px rgba(0,0,0,.15);
+    padding: 40px 20px;
+    border-radius: 10px;
+}
+
+.tour-list-item img {
+    width: 80%; /* Ele ocupa 80% dos 100% do tour-list-item (hereditário) */
+    border-radius: 7px;
+}
+
+.tour-list-item img:hover {
+    transform: scale(1.1); /* Aumenta 10% */
+    cursor: pointer;
+    transition: .5s;
+    box-shadow: 0 3px 25px rgba(0,0,0,.2);
+}
+
+.tour-list-item h3,
+.about-item h3 {
+    font-size: 3vmin;
+    color: var(--color-second);
+    margin: 50px auto;
+}
+
+.tour-list-item p,
+.about-item p {
+    color: var(--color-second);
+    padding: 0 50px;
+    margin-bottom: 20px;
+}
+
+/* Fim Tour */
+
+
+
+/* Explore */
+
+.explore {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,0)),
+    url(../images/pexels-kleber-m-ortiz-4028995.jpg);
+    background-position: 50%;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+}
+
+.explore-content {
+    width: 60%;
+    padding: 50px;
+    color: var(--color-first);
+}
+
+.explore-content h2 {
+    font-size: 7vmin;
+}
+
+.explore-content .line {
+    width: 60%;
+    margin: 40px 0;
+}
+
+.explore-content p {
+    font-weight: 600;
+    margin-bottom: 50px;
+    line-height: 30px;
+}
+
+/* Fim explore */
+
+
+
+/* Sobre */
+
+.about {
+    width: 90%;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 20px auto;
+}
+
+.about-list {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.about-item {
+    width: 50%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-item .btn {
+    margin: 40px auto;
+}
+
+.gallery-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-item img {
+    width: 50%;
+    padding: 20px;
+}
+
+img {
+    transition: transform .3s ease;
+}
+
+img:hover {
+    transform: scale(1.2);
+}
+
+/* Fim Sobre */
+
+
+
+/* Rodape */
+
+.footer{
+    width: 100%;
+    min-height: 400px;
+    background-color: var(--color-fourth);
+    color: var(--color-first);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 50px 30px;
+    font-size: 0.8rem;
+}
+
+.nav-footer, div  {
+    margin: 20px 0;
+}
+
+.nav-footer li{
+    margin: 10px 0;
+}
+
+.nav-footer a:hover{
+    color: var(--color-third);
+}
+
+.fa-brands {
+    margin: 0 10px;
+    font-size: 20px;
+}
+
+.fa-brands:hover {
+    color: var(--color-third);
+}
+
+.footer-content {    
+    min-width: 15%;
+}
+
+.footer-content h4{
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--color-third);
+}
+
+.footer-content h3{
+    font-weight: 900;
+    margin: 15px 0 10px;
+}
+
+.footer-content p{ 
+    margin: 5px 0;
+}
+
+.footer-content address {
+    font-style: normal;
+}
+
+/* Fim rodape */
+
+
+
+
+
+/* ----------------------------------------------------------------------------- */
+
+
+
+
+
+
+/* RESPONSIVO - 0 até 850px - essa regra só funcionará para telas de até 850px */
+
+
+@media(max-width: 850px) {
+
+    /* Header */
+    
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-bar {
+        padding: 0;
+    }
+
+    .logo {
+        position: absolute;
+        top: 25px;
+        left: 30px;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        justify-content: center;
+        background-color: var(--color-fourth);
+        margin-top: -1500px;
+        transition: .5s;
+    }
+
+    .mobile-menu {
+        margin-top: 0;
+    }
+
+    .nav-menu li {
+        margin: 30px auto;
+    }
+
+    .nav-menu a {
+        font-weight: 900;
+        text-transform: uppercase;
+    }
+    
+    /* Fim do header */
+
+
+
+    /* Tour */
+
+    .tour-list {
+        flex-direction: column;
+    }
+
+    .tour-list-item {
+        width: 100%;
+        text-align: center;
+    }
+
+    .tour-list-item img {
+        margin-top: 15px;
+    }
+
+    /* Fim do tour */
+
+
+
+    /* Explore */
+
+    .explore-content {
+        width: 100%;
+        padding: 50px;
+        color: var(--color-first);
+    }
+
+    /* Fim do explore */
+
+
+
+    /* Sobre */
+
+    .about-list {
+        flex-direction: column;
+    }
+
+    .about-item {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Fim Sobre */
+
+
+
+    /* Rodape */
+
+    .footer{
+        justify-content: center;        
+    }
+
+    .footer-content {
+        width: 50%;  
+        display: flex;
+        flex-direction: column;      
+        padding: 0 60px;
+    }
+
+    /* Fim rodape */
+
+}
+
+@media(max-width: 555px){
+    
+    .footer-content {
+            width: 100%;       
+        }
+    }
